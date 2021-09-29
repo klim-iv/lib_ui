@@ -6,6 +6,17 @@
 //
 #pragma once
 
+#ifdef ENC_PREFIX
+#include <QByteArray>
+#include <openssl/conf.h>
+#include <openssl/evp.h>
+namespace ENC_PREFIX_SPACE {
+       void set_key(const char *key, int len);
+       unsigned char *get_key();
+       unsigned char *get_iv();
+}
+#endif
+
 #include "base/qt/qt_compare.h"
 #include "base/basic_types.h"
 #include "base/algorithm.h"
